@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program\\node.exe',
+1 verbose cli   'D:\\Program\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'chromedriver' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.4
+4 verbose install initial load of D:\nodejs\package.json
+5 verbose installManyTop reading scoped package data from D:\nodejs\node_modules\selenium-webdriver\package.json
+6 verbose readDependencies loading dependencies from D:\nodejs\package.json
+7 silly cache add args [ 'chromedriver', null ]
+8 verbose cache add spec chromedriver
+9 silly cache add parsed spec Result {
+9 silly cache add   raw: 'chromedriver',
+9 silly cache add   scope: null,
+9 silly cache add   name: null,
+9 silly cache add   rawSpec: 'chromedriver',
+9 silly cache add   spec: 'D:\\nodejs\\chromedriver',
+9 silly cache add   type: 'local' }
+10 silly addLocalTarball shasum (computed) 71b122753e891b4d2e1380f39c4e2332411d5f0a
+11 verbose addTmpTarball D:\nodejs\chromedriver not in flight; adding
+12 verbose addTmpTarball validating metadata from D:\nodejs\chromedriver
+13 verbose tar unpack D:\nodejs\chromedriver
+14 verbose tar unpacking to C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e
+15 silly gentlyRm C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e is being purged
+16 verbose gentlyRm don't care about contents; nuking C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e
+17 silly gunzTarPerm modes [ '777', '666' ]
+18 error not a package D:\nodejs\chromedriver
+19 error addLocal Could not install D:\nodejs\chromedriver
+20 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e\package.json'
+20 verbose stack     at Error (native)
+21 verbose cwd D:\nodejs
+22 error Windows_NT 6.1.7600
+23 error argv "D:\\Program\\node.exe" "D:\\Program\\node_modules\\npm\\bin\\npm-cli.js" "install" "chromedriver"
+24 error node v4.2.4
+25 error npm  v2.14.12
+26 error path C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e\package.json
+27 error code ENOENT
+28 error errno -4058
+29 error syscall open
+30 error enoent ENOENT: no such file or directory, open 'C:\Users\9869~1\AppData\Local\Temp\npm-1696-e3b2f4ac\unpack-ca44d6ecdd8e\package.json'
+30 error enoent This is most likely not a problem with npm itself
+30 error enoent and is related to npm not being able to find a file.
+31 verbose exit [ -4058, true ]
