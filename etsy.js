@@ -1,4 +1,7 @@
-var user = require('./user');
+// user logining data
+var user = require('./user'),
+	User = new user();
+//selenium
 var webdriver = require('selenium-webdriver'),
     By = require('selenium-webdriver').By,
     until = require('selenium-webdriver').until;
@@ -6,10 +9,36 @@ var webdriver = require('selenium-webdriver'),
 var driver = new webdriver.Builder()
     .forBrowser('firefox')
     .build();
-var	url = 'https://www.etsy.com',
-	User = new user();
+//db mysql
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : User.data().name,
+  password : User.data().passw,
+  database : 'etsy',
+  charset: 'utf8'
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
+
+connection.query('SELECT * from links where count = 0', function(err, rows, fields) {
+  if (err) throw err;
+ 
+  console.log('The solution is: ', rows);
+});
+
+connection.end();
+//site data
+var	url = 'https://www.etsy.com';
+
 etsy(url, driver, By, User);
-//console.log('UserData', User.data().name);
 
 function etsy(url, driver, By, user) {
 
@@ -37,5 +66,7 @@ function etsy(url, driver, By, user) {
 		driver.findElement({css:input_passw__form}).sendKeys(user.passw);
 		driver.findElement({css:submit_button__form}).click();
 
-	}	
+	}
+
+
 }
