@@ -29,6 +29,7 @@ etsy(url, driver, By, User, db_data,connection);
 objUrl = {urls:url}
 function etsy(url, driver, By, user, db_data, connection) {
 	function init(connection) {
+		var db_data = db_data;
 		connection.connect(function(err) {
 		  if (err) {
 		    console.error('error connecting: ' + err.stack);
@@ -42,12 +43,12 @@ function etsy(url, driver, By, user, db_data, connection) {
 		  if (err) throw err;
 		 
 		   console.log('The solution is: ', rows);
-		  return rows;
+		  db_data =  rows;
 		});
 
 		connection.end();
 
-		return rows;
+		return db_data;
 	}
 /*	
 	driver.findElement(By.name('q')).sendKeys('webdriver');
@@ -83,12 +84,14 @@ function etsy(url, driver, By, user, db_data, connection) {
 
 	async.waterfall(
 	    [
-	        function(callback) {
+	    	function(callback) {
+	            callback(null, init(connection));
+	        },
+	        function(rows,callback) {
+	            console.log(rows);
 	            callback(null, logining(driver,user,url));
 	        },
-	        function(driver, callback) {
-	            callback(null, driver);
-	        },
+
 	    ],
 	    function (err, caption) {
 	        console.log(caption);
